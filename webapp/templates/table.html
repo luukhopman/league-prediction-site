@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% set active_page = "admin" %}
+
+{% block content %}
+<div class="container text-center">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                {% for row in rows %}
+                <th scope="col">{{row.username}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for row in rows %}
+                <th scope="col">{{row.ed_1}}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for row in rows %}
+                <th scope="col">{{row.ed_2}}</th>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

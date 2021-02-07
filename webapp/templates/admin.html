@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% set active_page = "admin" %}
+
+{% block content %}
+<div class="container text-center">
+    {% if users%}
+    <table class="table table-responsive table-striped table-hover">
+        <tbody>
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>PIN</th>
+                    <th>Date Created</th>
+                    <th>Admin Permission</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            {% for user in users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.pin}}</td>
+                <td>{{user.date_created.date()}}</td>
+                <td>{{user.is_admin}}</td>
+                <td>
+                    <a href="/prediction/{{user.id}}" class="btn-sm btn-primary" role="button">Prediction</a>
+                    <a href="/toggle-admin/{{user.id}}" class="btn-sm btn-primary" role="button">Toggle
+                        Admin</a>
+                    <a href="/delete-prediction/{{user.id}}" class="btn-sm btn-danger" role="button">Delete
+                        Prediction</a>
+                    <a href="/delete/{{user.id}}" class="btn-sm btn-danger" role="button">Deleter User</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+Nog geen actieve gebruikers
+{% endif %}
+{% endblock content %}

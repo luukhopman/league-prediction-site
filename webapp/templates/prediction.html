@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% set active_page = "admin" %}
+
+{% block content %}
+<div class="card mx-auto p-3 text-center" style="width: 24rem;">
+    {% if prediction%}
+    <h4>Voorspelling van <strong>{{prediction.username}}</strong></h4>
+    <hr>
+    <table class="table-sm table-striped table-hover">
+        <tbody>
+            {%for i in range(1, 19)%}
+            <tr>
+                <td class="position">{{i}}</td>
+                {% if i == 1 %}<td>{{prediction.ed_1}}</td>{% endif %}
+                {% if i == 2 %}<td>{{prediction.ed_2}}</td>{% endif %}
+                {% if i == 3 %}<td>{{prediction.ed_3}}</td>{% endif %}
+                {% if i == 4 %}<td>{{prediction.ed_4}}</td>{% endif %}
+                {% if i == 5 %}<td>{{prediction.ed_5}}</td>{% endif %}
+                {% if i == 6 %}<td>{{prediction.ed_6}}</td>{% endif %}
+                {% if i == 7 %}<td>{{prediction.ed_7}}</td>{% endif %}
+                {% if i == 8 %}<td>{{prediction.ed_8}}</td>{% endif %}
+                {% if i == 9 %}<td>{{prediction.ed_9}}</td>{% endif %}
+                {% if i == 10 %}<td>{{prediction.ed_10}}</td>{% endif %}
+                {% if i == 11 %}<td>{{prediction.ed_11}}</td>{% endif %}
+                {% if i == 12 %}<td>{{prediction.ed_12}}</td>{% endif %}
+                {% if i == 13 %}<td>{{prediction.ed_13}}</td>{% endif %}
+                {% if i == 14 %}<td>{{prediction.ed_14}}</td>{% endif %}
+                {% if i == 15 %}<td>{{prediction.ed_15}}</td>{% endif %}
+                {% if i == 16 %}<td>{{prediction.ed_16}}</td>{% endif %}
+                {% if i == 17 %}<td>{{prediction.ed_17}}</td>{% endif %}
+                {% if i == 18 %}<td>{{prediction.ed_18}}</td>{% endif %}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{% else %}
+Nog geen voorspelling
+{% endif %}
+{% endblock content %}

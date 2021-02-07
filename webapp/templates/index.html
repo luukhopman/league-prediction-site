@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% set active_page = "home" %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    {% if current_user.is_authenticated %}
+    <span class="display-3 mt-4 mb-4">Hallo <strong>{{current_user.username}}</strong></span>
+    <hr>
+    <p class="lead">Bekijk de tussenstand op het <strong><a href="/dashboard">dashboard</a></strong></p>
+    {% else %}
+    <span class="display-3 mt-4 mb-4">Welkom</span>
+    <hr>
+    <h4>Kies een gebruikersnaam om te beginnen ⤵️</h4>
+    {% endif %}
+  </div>
+</div>
+
+{% if form %}
+<div class="card mx-auto p-3" style="width: 24rem;">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      {{ form.username.label(class="form-control-label") }}
+      <div class="form-group">
+        {% if form.username.errors %}
+        {{ form.username(class="form-control form-control is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.username.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.username(class="form-control form-control") }}
+        {% endif %}
+        {{ form.submit(class="btn btn-primary mt-2")}}
+      </div>
+  </form>
+</div>
+{% endif %}
+{% endblock%}

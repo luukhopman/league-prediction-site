@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% set active_page = "eredivisie" %}
+{%block content%}
+<div class="prediction-table">
+    {{ form.hidden_tag() }}
+    {% if active_season %}
+    <div class="alert alert-danger text-center">
+        Je kunt je voorspelling niet meer indienen of aanpassen
+    </div>
+    {% endif%}
+    {% if form.errors %}
+    <div class="alert alert-danger text-center" role="alert">
+        Vul elk team één keer in!
+    </div>
+    {% endif %}
+    <div class="well-sm text-white bg-dark rounded-0 text-center font-weight-bold">
+        <big>EREDIVISIE</big>
+    </div>
+    <form method="POST" , action="">
+        <fieldset class="form-group">
+            <div id="table" class="table-editable">
+                <dl>
+                    <table class="table table-responsive-sm table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <td class="champion position">🏆</td>
+                                <td class="champion">{{ form.ed_1(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="runnerup position">2</td>
+                                <td class="runnerup">{{ form.ed_2(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="europe position">3</td>
+                                <td class="europe">{{ form.ed_3(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="europe position">4</td>
+                                <td class="europe">{{ form.ed_4(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">5</td>
+                                <td>{{ form.ed_5(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">6</td>
+                                <td>{{ form.ed_6(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">7</td>
+                                <td>{{ form.ed_7(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">8</td>
+                                <td>{{ form.ed_8(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">9</td>
+                                <td>{{ form.ed_9(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">10</td>
+                                <td>{{ form.ed_10(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">11</td>
+                                <td>{{ form.ed_11(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">12</td>
+                                <td>{{ form.ed_12(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">13</td>
+                                <td>{{ form.ed_13(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">14</td>
+                                <td>{{ form.ed_14(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="position">15</td>
+                                <td>{{ form.ed_15(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="playoffs position">16</td>
+                                <td class="playoffs">{{ form.ed_16(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="relegation position">⬇️</td>
+                                <td class="relegation">{{ form.ed_17(class="form-control select-transparent") }}</td>
+                            </tr>
+                            <tr>
+                                <td class="relegation position">⬇️</td>
+                                <td class="relegation">{{ form.ed_18(class="form-control select-transparent") }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </dl>
+                {% if not active_season %}
+                {{ form.submit(class="btn btn-outline-primary btn-lg btn-block")}}
+                {% else %}
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block" disabled>Voorspelling
+                    Opslaan</button>
+                {% endif %}
+        </fieldset>
+    </form>
+    <div class="container mb-5 text-center">
+        <h4>
+            <span class="badge badge-dark rounded-0">Gebruiksnaam</span><span
+                class="badge badge-primary rounded-0">{{current_user.username}}</span><br>
+            <span class="badge badge-dark rounded-0">PIN</span><span
+                class="badge badge-primary rounded-0">{{current_user.pin}}</span>
+        </h4>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% set active_page = "dashboard" %}
+
+{% block content %}
+<div class="container">
+    <div class="well-lg text-white text-center bg-dark rounded-0">
+        <h3><strong>Tussenstand</strong></h3>
+        Correcte voorspelling: <strong>100 punten</strong><br>
+        Één positie verschil: <strong>50 punten</strong>
+    </div>
+    <div class="table-responsive standings">
+        {{table|safe}}
+    </div>
+    {% endblock content %}
