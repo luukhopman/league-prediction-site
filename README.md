@@ -1,5 +1,5 @@
 # League Table Prediction Website
-Build with Flask, hosted on Heroku.
+Built with Flask, hosted on Heroku.
 
 ![](.github/home.png)
 
