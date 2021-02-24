@@ -8,8 +8,8 @@ db = SQLAlchemy()
 bootstrap = Bootstrap()
 login_manager = LoginManager()
 login_manager.login_view = 'users.login'
-login_manager.login_message_category = 'primary'
-login_manager.login_message = "Log in op die pagina te bezoeken"
+login_manager.login_message_category = 'danger'
+login_manager.login_message = "Log in om die pagina te bezoeken"
 
 
 def create_app():

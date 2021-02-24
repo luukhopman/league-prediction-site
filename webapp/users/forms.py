@@ -9,7 +9,7 @@ class RegisterForm(FlaskForm):
                            validators=[DataRequired(message="Vul een naam in"),
                                        Length(min=2, max=20, message='')],
                            render_kw={'placeholder': 'Gebruikersnaam'})
-    submit = SubmitField('Login')
+    submit = SubmitField('Vul je voorspelling in')
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -28,4 +28,4 @@ class LoginForm(FlaskForm):
     pin = StringField('PIN',
                       validators=[DataRequired()],
                       render_kw={'placeholder': 'PIN'})
-    submit = SubmitField('Login')
+    submit = SubmitField('Log in')

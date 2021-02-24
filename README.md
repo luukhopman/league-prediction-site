@@ -1,9 +1,10 @@
 # League Table Prediction Website
+Build with Flask, hosted on Heroku.
 
-Hosted on [Heroku](https://voorspelling.herokuapp.com/)
+![](.github/home.png)
 
 ## Prediction Page 
-![](images/prediction.png)
+![](.github/prediction.png)
 
 ## Dashboard
-![](images/dashboard.png)
+![](.github/dashboard.png)

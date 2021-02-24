@@ -2,9 +2,70 @@ html {
     font-size: 14px;
 }
 
-mark {
-    background-color: rgb(2, 117, 216);
-    color: white;
+a {
+    color: #5cb85c;
+  }
+
+.msg {
+    margin: 0 auto;
+    color: #444444;
+    background-color: #f9f9f9;
+    font-size: small;
+    padding: 12px;
+    padding-left: 16px;
+    border-top: solid 3px #f77676;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.21);
+    -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.1);
+         box-shadow: 0 5px 8px -6px rgba(0,0,0,.1);
+}
+
+.msg-success {
+    border-color: #81dd47;
+}
+.msg-warning {
+    border-color: rgba(178, 181, 25);
+}
+.msg-danger {
+    border-color: #ca4040;
+}
+.msg-primary {
+    border-color: #339bfc;
+}
+
+ /* MARKINGS */
+
+ mark {
+    color: black;
+    font-weight: 600;
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.green-marker {
+    background-image: linear-gradient(
+      to right,
+      rgba(30, 255, 0, 0.1),
+      rgba(119, 255, 115, 0.5) 10%,
+      rgba(81, 255, 0, 0.3)
+    );
+}
+
+.yellow-marker {
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 225, 0, 0.1),
+      rgba(248, 245, 63, 0.5) 4%,
+      rgba(255, 225, 0, 0.3)
+    );
+}
+
+.white-text {
+    color:white;
 }
 
 .table td {
@@ -12,10 +73,9 @@ mark {
     text-align: center !important;
 }
 
-
 .container {
 	align-self: center;
-	max-width: 1000px;
+	max-width: 1100px;
 }
 
 .container-sm {
@@ -25,6 +85,13 @@ mark {
 .navbar .navbar-brand {
     padding-top: 10px;
   }
+
+.shadow {
+    border-radius: 0% 0% 100% 100% / 0% 0% 8px 8px;
+    box-shadow: rgba(0, 0, 0,.15) 0 3px 6px;
+    -webkit-border-radius: 0% 0% 100% 100% / 0% 0% 8px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0,.15) 0 3px 6px;
+}
 
 /* PREDICTION */
 
@@ -109,21 +176,11 @@ select option {
     font-size: 13px !important;
  }
 
-.correct {
-    font-weight: 600;
-    box-shadow: inset 0 -0.1px 0 white, inset 0 -1.5px 0 rgb(66, 208, 90);
-}
-
-.half-correct {
-    font-weight: 500;
-    box-shadow: inset 0 -0.1px 0 white, inset 0 -1.5px 0 rgb(241, 255, 46);
-}
-
 .teams {
-    color: rgb(5, 113, 171);
+    color: rgb(100, 100, 100);
     font-weight: 700;
 }
 
-.dark-blue {
-    color: rgb(5, 113, 171);
+.bg-dark {
+    background-color: rgb(37, 37, 37) !important
 }

@@ -7,19 +7,17 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container text-center">
     {% if current_user.is_authenticated %}
-    <span class="display-3 mt-4 mb-4">Hallo <strong>{{current_user.username}}</strong></span>
-    <hr>
-    <p class="lead">Bekijk de tussenstand op het <strong><a href="/dashboard">dashboard</a></strong></p>
+    <span class="display-3 mt-4 mb-5">Hallo <strong>{{current_user.username}}</strong></span>
+    <p class="lead mt-4">Bekijk de tussenstand op het <strong><a href="/dashboard">dashboard</a></strong></p>
     {% else %}
-    <span class="display-3 mt-4 mb-4">Welkom</span>
-    <hr>
-    <h4>Kies een gebruikersnaam om te beginnen ⤵️</h4>
+    <span class="display-3 mt-4 mb-5"><strong>Welkom</strong></span>
+    <h4 class="mt-4">Kies een gebruikersnaam om te beginnen of <a href="login">log in</a></h4>
     {% endif %}
   </div>
 </div>
 
 {% if form %}
-<div class="card mx-auto p-3" style="width: 24rem;">
+<div class="card mx-auto p-3 shadow" style="width: 24rem;">
   <form method="POST" action="">
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
@@ -29,13 +27,13 @@
         {{ form.username(class="form-control form-control is-invalid") }}
         <div class="invalid-feedback">
           {% for error in form.username.errors %}
-          <span>{{ error }}</span>
+          <span>{{ error }} <i><a href={{ url_for('users.login') }}>log in</a></i></span>
           {% endfor %}
         </div>
         {% else %}
         {{ form.username(class="form-control form-control") }}
         {% endif %}
-        {{ form.submit(class="btn btn-primary mt-2")}}
+        {{ form.submit(class="btn btn-success btn btn-block mt-2")}}
       </div>
   </form>
 </div>

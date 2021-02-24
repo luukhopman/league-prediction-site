@@ -14,6 +14,8 @@
 {{super()}}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 {% endblock %}
 
@@ -21,7 +23,7 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark rounded-0">
     <a class="navbar-brand mx-auto" href="/">
         <span>
-            <h3>Voorspelling <strong><mark>2021-22</mark></strong></h3>
+            <h3><mark class="green-marker white-text">⚽🔮 2021-22</mark></h3>
         </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -47,10 +49,10 @@
             <li class="nav-item {{ 'active' if active_page == 'login' else '' }}">
                 {% if current_user.is_authenticated %}
                 <a class="nav-link" href="/logout">
-                    Log out <span class="badge bg-primary text-light ml-1 rounded-0">{{current_user.username}}</span>
+                    Log out <span class="badge ml-1 rounded-1 badge-success">{{current_user.username}}</span>
                 </a>
                 {% else %}
-                <a class="nav-link" href="/login">Log in</a>
+                <a class=" nav-link" href="/login">Log in</a>
                 {% endif %}
             </li>
         </ul>
@@ -61,7 +63,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
     {% for category, message in messages %}
-    <div class="alert alert-{{ category }} alert-dismissible fade in text-center">
+    <div class="msg msg-{{ category }} text-center">
         {{ message }}
     </div>
     {% endfor %}

@@ -104,12 +104,12 @@ def format_table(df):
     for user in df.columns[5:]:
         df[user] = np.where(df[user] == df['Team'],
                             df[user].apply(
-                                lambda x: f'<span class="correct">{x}</span>'),
+                                lambda x: f'<mark class="green-marker">{x}</mark>'),
                             df[user])
         df[user] = np.where((df[user] == df['Team'].shift(1)) |
                             (df[user] == df['Team'].shift(-1)),
                             df[user].apply(
-                                lambda x: f'<span class="half-correct">{x}</span>'),
+                                lambda x: f'<mark class="yellow-marker">{x}</mark>'),
                             df[user])
 
     for col in ['Team', 'W', 'P', 'DV', 'DT']:

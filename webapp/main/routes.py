@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, Markup, Blueprint, request
+from flask import render_template, redirect, url_for, flash, Blueprint, request
 from flask_login import current_user, login_required
 from webapp import db
 from webapp.main.forms import EredivisieForm

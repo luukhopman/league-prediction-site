@@ -24,7 +24,7 @@ def index():
         found_user = User.query.filter_by(username=username).first()
         login_user(found_user)
         flash(Markup(
-            f"Hi <strong>{username}</strong>. Je PIN is <strong>{found_user.pin}</strong>, deze kun je gebruiken om je voorspelling later aan te passen."), 'primary')
+            f"Hi <strong>{username}</strong>. Je PIN is <strong>{found_user.pin}</strong>, deze kun je gebruiken om je voorspelling later aan te passen."), 'success')
         return redirect(url_for('main.eredivisie'))
     return render_template('index.html', form=form)
 
@@ -42,7 +42,7 @@ def login():
         if found_user and found_user.pin == form.pin.data:
             login_user(found_user)
             flash(Markup(
-                f'Ingelogd als <strong>{form.username.data}</strong>'), 'primary')
+                f'Ingelogd als <strong>{form.username.data}</strong>'), 'success')
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('users.index'))
         else:

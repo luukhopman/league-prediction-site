@@ -88,30 +88,28 @@
                                 <td class="playoffs">{{ form.ed_16(class="form-control select-transparent") }}</td>
                             </tr>
                             <tr>
-                                <td class="relegation position">⬇️</td>
+                                <td class="relegation position">17</td>
                                 <td class="relegation">{{ form.ed_17(class="form-control select-transparent") }}</td>
                             </tr>
                             <tr>
-                                <td class="relegation position">⬇️</td>
+                                <td class="relegation position">18</td>
                                 <td class="relegation">{{ form.ed_18(class="form-control select-transparent") }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </dl>
                 {% if not active_season %}
-                {{ form.submit(class="btn btn-outline-primary btn-lg btn-block")}}
+                {{ form.submit(class="btn btn-success btn-lg btn-block")}}
                 {% else %}
-                <button type="button" class="btn btn-outline-primary btn-lg btn-block" disabled>Voorspelling
+                <button type="button" class="btn btn-success btn-lg btn-block" disabled>Voorspelling
                     Opslaan</button>
                 {% endif %}
         </fieldset>
     </form>
     <div class="container mb-5 text-center">
         <h4>
-            <span class="badge badge-dark rounded-0">Gebruiksnaam</span><span
-                class="badge badge-primary rounded-0">{{current_user.username}}</span><br>
             <span class="badge badge-dark rounded-0">PIN</span><span
-                class="badge badge-primary rounded-0">{{current_user.pin}}</span>
+                class="badge badge-success rounded-0">{{current_user.pin}}</span>
         </h4>
     </div>
 </div>
