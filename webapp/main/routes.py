@@ -41,15 +41,15 @@ def eredivisie():
             db.session.commit()
         return redirect(url_for('main.dashboard'))
 
-    return render_template('eredivisie.html', active_season=False,
+    return render_template('eredivisie.html', active_season=Config.ACTIVE_SEASON,
                            form=form, title='Voorspelling')
 
 
 @main.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
-    if not Config.ACTIVE_SEASON:
-        flash("Je kunt op dit moment alleen je eigen voorspelling bekijken", 'primary')
-        return redirect(url_for('main.prediction', user_id=current_user.id))
+    if not Config.ACTIVE_SEASON and not current_user.is_admin:
+        flash("Je kunt op dit moment alleen je eigen voorspelling bekijken", 'success')
+        return redirect(url_for('main.view_prediciton', user_id=current_user.id))
     df = get_eredivisie_table()
     if not df:
         flash("Nog geen voorspellingen", 'warning')
@@ -61,10 +61,10 @@ def dashboard():
 @login_required
 def view_prediciton(user_id):
     if not user_id == current_user.id and not current_user.is_admin:
-        flash('Je bent geen admin.', 'danger')
+        flash("Je bent geen admin", 'danger')
         return redirect('/')
     prediction = Prediction.query.filter_by(user_id=user_id).first()
-    return render_template('prediction.html', prediction=prediction, title='Prediction')
+    return render_template('prediction.html', prediction=prediction, title='Voorspelling')
 
 
 def get_teams_order(eredivisie_list, found_user):

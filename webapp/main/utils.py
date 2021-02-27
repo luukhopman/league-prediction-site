@@ -98,8 +98,8 @@ def get_points_list(predictions, standings, num_points=10):
 def format_table(df):
     '''
     Function that adds classes to cells to format table
-    - Underlines (semi-)correct predicitons
-    - Changes the standings text color to dark blue
+    - Marks (semi-)correct predicitons
+    - Changes the standings text color to gray
     '''
     for user in df.columns[5:]:
         df[user] = np.where(df[user] == df['Team'],
@@ -115,11 +115,11 @@ def format_table(df):
     for col in ['Team', 'W', 'P', 'DV', 'DT']:
         if col == 'Team':
             df[col] = df[col].apply(
-                lambda x: f'<span class="teams">{x}</span>')
+                lambda x: f'<span class="live-score-bold">{x}</span>')
         else:
             df[col] = df[col].apply(
-                lambda x: f'<span class="dark-blue">{x}</span>')
-        df = df.rename(columns={col: f'<span class="dark-blue">{col}</span>'})
+                lambda x: f'<span class="live-score">{x}</span>')
+        df = df.rename(columns={col: f'<span class="live-score">{col}</span>'})
     return df
 
 

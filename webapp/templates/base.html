@@ -49,12 +49,19 @@
             <li class="nav-item {{ 'active' if active_page == 'login' else '' }}">
                 {% if current_user.is_authenticated %}
                 <a class="nav-link" href="/logout">
-                    Log out <span class="badge ml-1 rounded-1 badge-success">{{current_user.username}}</span>
+                    Log out
                 </a>
                 {% else %}
                 <a class=" nav-link" href="/login">Log in</a>
                 {% endif %}
             </li>
+            {% if current_user.is_authenticated %}
+            <li>
+                <a class="btn btn-sm rounded-1 btn-success"
+                    href="/change-user/{{current_user.id}}">{{current_user.username}}
+                </a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

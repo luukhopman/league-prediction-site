@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% set active_page = "login" %}
+
 {%block content%}
+
+{% if change %}
+<div class="msg msg-success text-center">
+    Pas je gebruikernaam of PIN aan
+</div>
+{% endif %}
 
 <div class="card mx-auto p-3 shadow" style="width: 24rem;">
     <form method="POST" , action="">
@@ -34,7 +41,11 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.submit(class="btn btn-success btn-block mt-4") }}
+                {% if change %}
+                <input type="submit" value="Opslaan" class="btn btn-success btn-block mt-4">
+                {% else %}
+                <input type="submit" value="Login" class="btn btn-success btn-block mt-4">
+                {% endif %}
             </div>
         </fieldset>
     </form>

@@ -23,9 +23,11 @@ class RegisterForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     username = StringField('Gebruikersnaam',
-                           validators=[DataRequired()],
+                           validators=[DataRequired(message='Vul een naam in'),
+                                       Length(min=2, max=20, message='')],
                            render_kw={'placeholder': 'Gebruikersnaam'})
     pin = StringField('PIN',
-                      validators=[DataRequired()],
+                      validators=[DataRequired(),
+                                  Length(min=4, max=4, message='PIN bestaat uit 4 tekens')],
                       render_kw={'placeholder': 'PIN'})
     submit = SubmitField('Log in')

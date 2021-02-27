@@ -2,15 +2,15 @@
 
 {% set active_page = "eredivisie" %}
 {%block content%}
+{% if active_season %}
+<div class="msg msg-danger text-center">
+    Je kunt je voorspelling niet meer indienen of aanpassen
+</div>
+{% endif%}
 <div class="prediction-table">
     {{ form.hidden_tag() }}
-    {% if active_season %}
-    <div class="alert alert-danger text-center">
-        Je kunt je voorspelling niet meer indienen of aanpassen
-    </div>
-    {% endif%}
     {% if form.errors %}
-    <div class="alert alert-danger text-center" role="alert">
+    <div class="msg msg-danger text-center" role="alert">
         Vul elk team één keer in!
     </div>
     {% endif %}
@@ -106,11 +106,5 @@
                 {% endif %}
         </fieldset>
     </form>
-    <div class="container mb-5 text-center">
-        <h4>
-            <span class="badge badge-dark rounded-0">PIN</span><span
-                class="badge badge-success rounded-0">{{current_user.pin}}</span>
-        </h4>
-    </div>
 </div>
 {% endblock%}

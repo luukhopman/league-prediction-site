@@ -1,9 +1,10 @@
 import os
 from datetime import datetime
 
-DEV = True
-if os.environ.get('DATABASE_URL'):
+if os.environ.get('DATABASE_URL'):  # Heroku
     DEV = False
+else:
+    DEV = True
 
 
 class Config:
@@ -16,7 +17,7 @@ class Config:
     else:
         SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
-    if datetime.today().month != 9:
+    if datetime.today().month != 8:
         ACTIVE_SEASON = True
     else:
         ACTIVE_SEASON = False
