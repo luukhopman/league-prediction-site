@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% set active_page = "login" %}
-
 {%block content%}
 
 {% if change %}
 <div class="msg msg-success text-center">
     Pas je gebruikernaam of PIN aan
 </div>
+{% else %}
+{% set active_page = "login" %}
 {% endif %}
 
 <div class="card mx-auto p-3 shadow" style="width: 24rem;">
